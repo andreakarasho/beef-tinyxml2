@@ -7,8 +7,10 @@ namespace tinyxml2
 		public static readonly char8* writeBoolTrue = "true";
 		public static readonly char8* writeBoolFalse = "false";
 
+		[Warn("empty function")]
 		public static void SetBoolSerialization(char8* writeTrue, char8* writeFalse)
 		{
+
 		}
 
 		public static char8* ReadBOM(char8* p, bool* bom)
@@ -29,6 +31,7 @@ namespace tinyxml2
 			return pp;
 		}
 
+		[Inline]
 		public static bool IsNameChar(uint8 p)
 		{
 			return IsNameStartChar(p)  ||
@@ -37,6 +40,7 @@ namespace tinyxml2
 				   p == '-';
 		}
 
+		[Inline]
 		public static bool IsNameStartChar(uint8 c)
 		{
 			if (c >= 128)
@@ -82,6 +86,7 @@ namespace tinyxml2
 			return utilities.strncmp(p, q, (uint) nChar) == 0;
 		}
 
+		[Inline]
 		public static bool IsUTF8Continuation(char8 p) => ((int) p & 0x80) != 0;
 
 		public static char8* GetCharacterRef(char8* p, char8[] buf, int* len)
@@ -175,11 +180,6 @@ namespace tinyxml2
 			}
 
 			return p + 1;
-		}
-
-		public static void ToStr(int v, char8* buf, int buffSize)
-		{
-			String s = scope .(buf, buffSize);
 		}
 	}
 }

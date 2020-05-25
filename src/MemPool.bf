@@ -2,7 +2,7 @@ using System;
 
 namespace tinyxml2
 {
-	sealed class MemPool<T> where T: XmlNode
+	/*sealed class MemPool<T> where T: XmlNode
 	{
 		private int _currentAllocs;
 		private int _nAllocs;
@@ -27,4 +27,5 @@ namespace tinyxml2
 
 		}
 	}
+	*/
 }

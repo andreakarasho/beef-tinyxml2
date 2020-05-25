@@ -17,7 +17,7 @@ namespace tinyxml2
 		COMMENT = NEEDS_NEWLINE_NORMALIZATION
 	}
 
-	class StrPair
+	sealed class StrPair
 	{
 		private const int NEEDS_FLUSH = 0x100;
 		private const int NEEDS_DELETE = 0x200;
@@ -178,7 +178,7 @@ namespace tinyxml2
 			// todo: assert
 
 			Reset();
-			size_t len = utilities.strlen(str);
+			uint len = utilities.strlen(str);
 
 			_start = new char8[len]*;
 			Internal.MemCpy(_start, str, (int)len);
@@ -186,27 +186,25 @@ namespace tinyxml2
 			_flags = flags | NEEDS_DELETE;
 		}
 
-		public char8* ParseText(char8* p, char8* endTag, int strFlags, int* curLineNumPtr)
+		public char8* ParseText(char8* pp, char8* endTag, int strFlags, int* curLineNumPtr)
 		{
 			// todo asserts
-
-			char8* pp = p;
-
+			var p = pp;
 			char8* start = p;
 			let endChar = *endTag;
-			size_t length = utilities.strlen(endTag);
+			uint length = utilities.strlen(endTag);
 
-			while (*pp != 0)
+			while (*p != 0)
 			{
-				if (*pp == endChar && utilities.strncmp(pp, endTag, length) == 0)
+				if (*p == endChar && utilities.strncmp(p, endTag, length) == 0)
 				{
-					Set(start, pp, strFlags);
-					return pp + length;
+					Set(start, p, strFlags);
+					return p + length;
 				}
-				else if (*pp == '\n')
+				else if (*p == '\n')
 					++(*curLineNumPtr);
 
-				++pp;
+				++p;
 			}
 
 			return null;

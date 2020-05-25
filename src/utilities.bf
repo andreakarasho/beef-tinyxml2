@@ -1,3 +1,5 @@
+using System;
+
 namespace tinyxml2
 {
 	static class utilities
