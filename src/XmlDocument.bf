@@ -191,7 +191,7 @@ namespace tinyxml2
 			}
 
 			FileStream fs = scope FileStream();
-			switch(fs.Open(StringView(filename), .ReadWrite, .ReadWrite))
+			switch(fs.Create(StringView(filename), .ReadWrite, .ReadWrite))
 			{
 			case .Ok:
 				break;
