@@ -553,13 +553,17 @@ namespace tinyxml2
 				switch (t)
 				{
 				case "True":
+					fallthrough;
 				case "TRUE":
+					fallthrough;
 				case "true":
 					v = true;
 					return .XML_SUCCESS;
 
 				case "False":
+					fallthrough;
 				case "FALSE":
+					fallthrough;
 				case "false":
 					v = false;
 					return .XML_SUCCESS;
