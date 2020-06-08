@@ -148,7 +148,7 @@ namespace tinyxml2
 		{
 		 	--_depth;
 
-			var name = _stack.PopFront();
+			var name = _stack.PopBack();
 
 			if (_elementJustOpened)
 			{
