@@ -178,10 +178,12 @@ namespace tinyxml2
 			// todo: assert
 
 			Reset();
-			uint len = utilities.strlen(str);
+			uint len = utilities.strlen(str) + 1;
 
-			_start = new char8[len]*;
-			Internal.MemCpy(_start, str, (int)len);
+		    _start = (char8*)Internal.Malloc((.) len);
+			Internal.MemCpy(&_start[0], &str[0], (int)len);
+			_start[len - 1] = '\0';
+
 			_end = _start + len;
 			_flags = flags | NEEDS_DELETE;
 		}
