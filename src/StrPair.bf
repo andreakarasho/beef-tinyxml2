@@ -180,9 +180,8 @@ namespace tinyxml2
 			Reset();
 			uint len = utilities.strlen(str);
 
-		    _start = new char8[len + 1]*; //(char8*)Internal.Malloc((.) len + 1);
+		    _start = new char8[len + 1]*;
 			Internal.MemCpy(&_start[0], &str[0], (int)len + 1);
-			_start[len] = '\0';
 
 			_end = _start + len;
 			_flags = flags | NEEDS_DELETE;
