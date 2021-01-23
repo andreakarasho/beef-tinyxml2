@@ -5,7 +5,7 @@ namespace tinyxml2
 {
 	struct Entity
 	{
-		public this(char8* patt, int len, char8 val)
+		public this(char8* patt, int32 len, char8 val)
 		{
 			pattern = patt;
 			length = len;
@@ -13,7 +13,7 @@ namespace tinyxml2
 		}
 
 		public char8* pattern;
-		public int length;
+		public int32 length;
 		public char8 value;
 	}
 
@@ -52,13 +52,14 @@ namespace tinyxml2
 		public const int BUFF_SIZE = 200;
 
 		public const int NUM_ENTITIES = 5;
-		public static Entity[NUM_ENTITIES] entities = .(
+		public static Entity[] entities = new Entity[]
+		{
 			.("quote", 4, DOUBLE_QUOTE),
 			.("amp", 3, '&'),
 			.("apos", 4, SINGLE_QUOTE),
 			.("lt", 2, '<'),
 			.("gt", 2, '>'),
-			);
+		} ~ delete _;
 
 
 
