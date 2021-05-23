@@ -440,6 +440,11 @@ namespace tinyxml2
 
 		private void PrintString(char8* pp, bool restricted )
 		{
+			if (pp == null)
+			{
+				return;
+			}
+
 			char8* q = pp;
 			char8* p = pp;
 
