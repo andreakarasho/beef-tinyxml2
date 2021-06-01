@@ -351,7 +351,7 @@ namespace tinyxml2
 			Delete a node associated with this document.
 			It will be unlinked from the DOM.
 		*/
-		public void DeleteNode(XmlNode node)
+		public new void DeleteNode(XmlNode node)
 		{
 			if (node.[Friend]_parent != null)
 			{
