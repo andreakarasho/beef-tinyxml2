@@ -53,13 +53,13 @@ namespace tinyxml2
 
 		public const int NUM_ENTITIES = 5;
 		public static Entity[] entities = new Entity[]
-		{
+		(
 			.("quote", 4, DOUBLE_QUOTE),
 			.("amp", 3, '&'),
 			.("apos", 4, SINGLE_QUOTE),
 			.("lt", 2, '<'),
 			.("gt", 2, '>'),
-		} ~ delete _;
+		) ~ delete _;
 
 
 
